@@ -1,69 +1,6 @@
 "use strict";
 
-// function randomNum() {
-//  var rdm = Math.ceil((Math.random() * 9));
-//  return rdm
-// }
-
-// console.log(randomNum());
-
-
-// function main(secretNum, guess) {
-//    var bulls = 0;
-//    var cows = 0;
-//    var numbers = new Array(10);
-//     for (i = 0; i < 10; i++) {
-        
-//         }
-// }
-
-// function isEmpty(obj) {
-    
-//     var key = 0;
-//     for (key in obj) {
-//     }
-//     if (key < 1) {
-//         return true;
-//     }
-//         else {
-//         return false ;
-//         key++ ;
-//     }
-
-// }
-
-// var schedule = {};
-// alert(schedule["8:30"]); 
-// alert(isEmpty(schedule)); 
-
-// let salaries = {
-//   "Petya": 100,
-//   "Misha": 300,
-//   "Dasha": 250
-// };
-
-// function f(obj) {
-//   let coutner = 0;
-//   let result = 0;
-
-//   for (var prop in salaries) {
-//     result += salaries[prop]
-//     coutner++
-//   }
-//   if (coutner == 0) {
-//     alert("Salaries is empty");
-//   }
-//   return result;
-// }
-
-// alert(f(salaries));
-
-// function  (n) {
-//  let value = Math.floor((Math.random()) * 10); 
-//  return value;
-// }
-//console.log(generateRandomNum());
-
+//Guess Random number
 function guessNum() {
   let number = "";
   
@@ -82,5 +19,30 @@ function guessNum() {
   return number; 
 }
 
+//Debug
 console.log(guessNum());
 
+//Campare values and  out result
+function campareValues() {
+  let randomResult = guessNum();
+
+  for (let i = 0; i <= 10; i++) {
+    var bulls = 0;
+    var cows = 0;
+    let enterPlayerNum = prompt("Введи 4 цифры", "");
+  
+    for (i = 0; i < 4; i++) {
+      if (randomResult[i] === enterPlayerNum[i]) {
+        bulls++;
+      } else if (randomResult.includes(enterPlayerNum[i])) {
+        cows++;
+      }
+    }
+    if (bulls == 4) {
+      alert(`${enterPlayerNum}: ${bulls}Б, ${cows}К. Победа`);
+      break;
+    }
+    alert(`${enterPlayerNum}: ${bulls}Б, ${cows}К. попробуй еще раз`);
+  }
+}
+campareValues();
